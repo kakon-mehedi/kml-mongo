@@ -40,13 +40,11 @@ async function getUsers() {
 }
 
 async function getUserSkipSomeProperties() {
-    // select all users but skip the value name and age 
-    const users = await User.find().select('-name -age');
+	// select all users but skip the value name and age
+	const users = await User.find().select('-name -age');
 
-    // select all usrs but give only name and skip all other properties
-    const users2 = await User.find().select('name');
-
-
+	// select all usrs but give only name and skip all other properties
+	const users2 = await User.find().select('name');
 }
 
 async function getUsersWithLimit(limit) {
@@ -70,9 +68,9 @@ async function getUsersWithParms() {
 
 	// find users where name == age and status = pending or rejected
 	const users3 = await User.find({
-        $expr: { $eq: ['$name', '$age'] },
-        $or: [{ status: 'pending' }, { status: 'rejected' }]
-      });      
+		$expr: { $eq: ['$name', '$age'] },
+		$or: [{ status: 'pending' }, { status: 'rejected' }],
+	});
 
 	console.log(user);
 }
